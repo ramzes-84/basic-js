@@ -23,13 +23,8 @@ function countCats(matr) {
     r.push(...count);
   };
   return r.length;
-}
+};
 
-// console.log(countCats([
-//   [0, 1, '^^'],
-//   [0, '^^', 2],
-//   ['^^', 1, 2]
-// ]))
 
 
 
