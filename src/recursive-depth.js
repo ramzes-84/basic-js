@@ -13,12 +13,49 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  calculateDepth(arr) {
+    let r = 0;
+    if (!Array.isArray(arr)) return r;
+    r += 1;
+    for (let item of arr) {
+      if (Array.isArray(item)) {
+        return r += calculateDepth(item);
+      }
+    }
+    return r
   }
 }
 
 module.exports = {
   DepthCalculator
 };
+
+
+
+
+
+// let r;
+
+// function calculateDepth(arr) {
+//   let count = 0;
+//   function goDeep(a) {
+//     for (let i of a) {
+//       if (Array.isArray(i)) {
+//         count += 1;
+//         goDeep(i);
+//       }
+//     }
+//   }
+//   for (let item of arr) {
+//     if (Array.isArray(item)) goDeep(item);
+//   }
+//   console.log(count);
+// }
+
+
+
+// calculateDepth([1, 2, 3, [8, [2]], 4, 5, []]);
+// calculateDepth([1, [8, [[]]], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]], []]]], []]]]]]]]], []]]], []]]]]]]]]], 2, 3, [8, [[[[[[[[[[[[[[]]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]]);
+
+// console.log(calculateDepth([1, 2, 3, [8, [2]], 4, 5, []]));
+// console.log(calculateDepth([1, [8, [[]]], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]], []]]], []]]]]]]]], []]]], []]]]]]]]]], 2, 3, [8, [[[[[[[[[[[[[[]]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]]));
