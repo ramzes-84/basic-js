@@ -18,12 +18,21 @@ const { NotImplementedError } = require('../extensions/index.js');
 
 
 
-
-
-
-
 function renameFiles(arr) {
-  
+  let r = new Array;
+  let dictionary = new Object;
+  for (let item of arr) {
+    if (!dictionary.hasOwnProperty(item)) {
+      r.push(item);
+      dictionary[item] = 0;
+    } else {
+      dictionary[item]++;
+      let rename = item + '(' + dictionary[item] + ')';
+      r.push(rename);
+      dictionary[rename] = 0;
+    }
+  }
+  return r;
 }
 
 
