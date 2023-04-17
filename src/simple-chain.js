@@ -28,9 +28,9 @@ const chainMaker = {
   },
   reverseChain() {
     let arrForRev = Object.entries(this.chains).reverse();
-    console.log(arrForRev);
+    // console.log(arrForRev);
     let x = Object.fromEntries(arrForRev);
-    console.log(x);
+    // console.log(x);
     return this;
   },
   finishChain() {
